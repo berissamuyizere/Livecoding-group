@@ -1,45 +1,101 @@
 class Languages {
-    constructor(language) {
-        this.language = language;
+  constructor(languageList) {
+    this.languageList = languageList;
+    this.userProgress = {}; // user progress store
+  }
+  availableLanguage(targetLanguage, proficiencyLevel) {
+    const lang = this.languageList.find(
+      l => l.name.toLowerCase() === targetLanguage.toLowerCase()
+    );
+    if (!lang) {
+      console.log(":x: Language not found.");
+      return null;
     }
-};
-
-Languages.prototype.availableLanguage = function (targetLanguage, proficiencylevel) {
-    for (lang in this.language) {
-        if (lang.name === targetLanguage ) {
-            return lang.exercises, lang.materials 
+    const material = lang.materials.find(
+      mat => mat.level.toLowerCase() === proficiencyLevel.toLowerCase()
+    );
+    if (!material) {
+      console.log(":x: Proficiency level not found.");
+      return null;
+    }
+    return {
+      exercises: material.exercises,
+      quiz: material.quiz.map(q => q.question),
+      vocabulary: material.vocabulary,
+      resources: material.resources
+    };
+  }
+  complete(languageName, level, userAnswers) {
+    const lang = this.languageList.find(l => l.name.toLowerCase() === languageName.toLowerCase());
+    const material = lang?.materials.find(m => m.level.toLowerCase() === level.toLowerCase());
+    if (!material) return "Material not found.";
+    let score = 0;
+    material.quiz.forEach((q, i) => {
+      if (userAnswers[i]?.toLowerCase() === q.answer.toLowerCase()) score++;
+    });
+    const result = {
+      score,
+      total: material.quiz.length,
+      percentage: ((score / material.quiz.length) * 100).toFixed(2) + "%"
+    };
+    const key = `${languageName}_${level}`;
+    this.userProgress[key] = result;
+    return result;
+  }
+  getProgress() {
+    return this.userProgress;
+  }
+}
+// Real quiz data and extra resources
+const allLanguages = [
+  {
+    name: "French",
+    materials: [
+      {
+        level: "Beginner",
+        quiz: [
+          { question: "What is 'hello' in French?", answer: "bonjour" },
+          { question: "What is 'thank you' in French?", answer: "merci" },
+          { question: "What is 'goodbye' in French?", answer: "au revoir" }
+        ],
+        exercises: ["Translate 5 simple sentences to French", "Practice French alphabet"],
+        vocabulary: ["bonjour", "merci", "au revoir", "chat", "chien"],
+        resources: {
+          grammar: "https://www.lawlessfrench.com/grammar/",
+          video: "https://www.youtube.com/watch?v=5MgBikgcWnY",
+          dictionary: "https://www.wordreference.com"
         }
-        else console.log("language not found")
-    }
-}
+      }
+    ]
+  },
+  {
+    name: "English",
+    materials: [
+      {
+        level: "Beginner",
+        quiz: [
+          { question: "What is the plural of 'child'?", answer: "children" },
+          { question: "Which is a noun: run, apple, quickly?", answer: "apple" },
+          { question: "What is the opposite of 'hot'?", answer: "cold" }
+        ],
+        exercises: ["Write 3 simple sentences", "Identify verbs in a short paragraph"],
+        vocabulary: ["hello", "book", "run", "happy", "cold"],
+        resources: {
+          grammar: "https://www.ef.com/wwen/english-resources/english-grammar/",
+          video: "https://www.youtube.com/watch?v=JvW2kPZc4CM",
+          dictionary: "https://dictionary.cambridge.org"
+        }
+      }
+    ]
+  }
+];
+// Usage Example
+const learner = new Languages(allLanguages);
+// Show learning materials
+console.log("Available Materials:", learner.availableLanguage("French", "Beginner"));
+// Simulate a quiz
+const userAnswers = ["bonjour", "merci", " revoir"];
+console.log("Quiz Result:", learner.complete("French", "Beginner", userAnswers));
+// Progress log
+console.log("Progress:", learner.getProgress());
 
-Languages.prototype.complete = function(answers){
-    
-
-}
- const allLanguages = [{
-        name: "French", proficiency: ["advanced", "intermediate", "beginner"],
-        materials: [{ level: "Beginner", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] },
-        { level: "Intermediate", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] },
-        { level: "advanced", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] }],
-    }, {
-        name: "English", proficiency: ["advanced", "intermediate", "beginner"],
-        materials: [{ level: "Beginner", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] },
-        { level: "Intermediate", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] },
-        { level: "advanced", quiz: ["question1", "question2", "question3"], exercises: ["exercise1", "exercises2", "exercises3"], answers: ["okay", "by", "hello"], vocabulary: ["verbs", "proverbes", "nouns"] }],
-    }]
-
-    const languages = new Languages(allLanguages);
-    console.log(languages);
-    languages.availableLanguage()
-
-// const learnLanguage = (targetLanguage, proficiencylevel) => {
-
-//     for (language in allLanguages) {
-//         if (language.name === targetLanguage && language.materials.level === proficiencylevel) {
-//             return language.exercises, language.quiz, language.vocabulary
-//         }
-//         else console.log("language not found")
-//     }
-// }
-// learnLanguage("French", "Beginner")
