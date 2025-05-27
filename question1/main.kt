@@ -28,10 +28,22 @@ class LanguageLearning(
     }
     fun answerComplete(answered: Array<String>): Boolean {
         return answered.size == answers.size
+    }fun score(answered: Array<String>): Int {
+      var count = 0
+       for (i in answered) {
+           for (x in answares) {
+               if (i == x) {
+
+                    ++count
+
+                } else {
+                    continue
+                }
+            }
+        }
+        return count
     }
-    fun score(answered: Array<String>): Int {
-        return answered.count { it in answers }
-    }
+    
     fun progress(map: HashMap<String, Any>) {
         for ((key, value) in map) {
             println("Progress for $key: $value")
