@@ -20,10 +20,10 @@ class LanguageLearning(
     var quizzes: Array<String>
 ) {
     fun availableLanguage(language: String): String {
-        return if (languages.contains(language.lowercase())) {
-            "Available resources: ${exercises.joinToString(", ")}, ${grammar.joinToString(", ")}, ${quizzes.joinToString(", ")}"
+         if (languages.contains(language.lowercase())) {
+           return "Available resources: ${exercises.joinToString(", ")}, ${grammar.joinToString(", ")}, ${quizzes.joinToString(", ")}"
         } else {
-            "Language doesn't exist"
+           return "Language doesn't exist"
         }
     }
     fun answerComplete(answered: Array<String>): Boolean {
