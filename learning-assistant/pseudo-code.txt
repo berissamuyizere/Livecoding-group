@@ -1,0 +1,11 @@
+Inputs
+
+Language
+Language proficiency level
+
+Steps
+1. Create a language class that will have an object of language lists
+2. Check the availability of language and proficiency level
+3. If the language and proficiency exist, display all the materials of the language based on the proficiency level,
+ Else if the language and proficiency level do not exist, print language not found.
+4. 
