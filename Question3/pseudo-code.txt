@@ -1,0 +1,17 @@
+Inputs 
+
+Voter Id
+Candidate
+
+Process
+
+1. Create a variable that will save the number of candiadates to be voted for.
+2. Take in the id number of a voter
+3. Check if the voters id is registered.
+4. If the user is registered check if they have already voted
+5. If the user have not voted, save the voted
+6. Calculate the votes for each and save them.
+
+Output
+
+List of candidates and their total votes
