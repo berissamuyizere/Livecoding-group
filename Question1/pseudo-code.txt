@@ -4,18 +4,21 @@ language exercises and quizzes. additionary, users should be able to track their
 and access additional language resources.
 
 
-Inputs
-
-Language
-Language proficiency level
+Inputs: Taarget language, Language proficiency level
 
 Steps
-1. Create a language class that will have an object of language lists
-2. Check the availability of language and proficiency level
-3. If the language and proficiency exist, display all the materials of the language based on the proficiency level,
- Else if the language and proficiency level do not exist, print language not found.
-4.Create a function to check completion of the queizes by checking if each question has an answer else display message to complete the queize
-5. create a fuction to keep track of the user progress.
+1. Prompt the user to input their target language (e.g., Spanish, French). If language does not  exist, display an error message. 
 
-Output
-a list of objects with all the language materials
+2. Prompt the user to input their proficiency level (e.g., Beginner, Intermediate, Advanced).
+
+3. Based on the user’s target language and proficiency level, display vocabularies, quizzes and exercises.
+
+4. Collect and evaluate the user’s responses on quizzes and exercises and provide feedback (correct/incorrect).
+
+5. Show the user their scores.
+
+6. Record completed exercises/quizzes and save the progress for future sessions.
+
+7. Provide access to additional language resources
+
+Output: A list of objects with all the language materials
