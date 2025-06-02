@@ -1,7 +1,7 @@
 class Languages {
  constructor(languageList) {
    this.languageList = languageList;
-   this.userProgress = {}; // user progress store
+   this.userProgress = {}; 
  }
  availableLanguage(targetLanguage, proficiencyLevel) {
    const lang = this.languageList.find(
@@ -46,7 +46,7 @@ class Languages {
    return this.userProgress;
  }
 }
-// Real quiz data and extra resources
+
 const allLanguages = [
  {
    name: "French",
@@ -94,8 +94,3 @@ console.log("Available Materials:", learner.availableLanguage("French", "Beginne
 const userAnswers = ["bonjour", "merci", " revoir"];
 console.log("Quiz Result:", learner.complete("French", "Beginner", userAnswers));
 console.log("Progress:", learner.getProgress());
-
-
-
-
-

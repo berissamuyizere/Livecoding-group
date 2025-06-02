@@ -7,6 +7,7 @@ fun main() {
         arrayOf("grammar1", "grammar2", "grammar3"),
         arrayOf("quiz1", "quiz2", "quiz3")
     )
+    
     println(user.availableLanguage("french"))
     println(user.score(arrayOf("a", "b", "c")))
     println(user.answerComplete(arrayOf("a", "b", "c")))
