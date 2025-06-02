@@ -1,0 +1,18 @@
+Create a program to assist language learners in practicing vocabulary and grammar. users should input their target language and proficiency level and receive tailored language exercises and quizzes. additionary, users should be able to track their progress and access additional language resources.
+
+
+Inputs
+
+Language
+Language proficiency level
+
+Steps
+1. Create a language class that will have an object of language lists
+2. Check the availability of language and proficiency level
+3. If the language and proficiency exist, display all the materials of the language based on the proficiency level,
+ Else if the language and proficiency level do not exist, print language not found.
+4.Create a function to check completion of the queizes by checking if each question has an answer else display message to complete the queize
+5. create a fuction to keep track of the user progress.
+
+Output
+a list of objects with all the language materials
