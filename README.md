@@ -2,7 +2,10 @@
 
 ## Question 1
 
-Create a program to assist language learners in practicing vocabulary and grammar. users should input their target language and proficiency level and receive tailored language exercises and quizzes. additionary, users should be able to track their progress and access additional language resources.
+Create a program to assist language learners in practicing vocabulary and grammar. 
+users should input their target language and proficiency level and receive tailored 
+language exercises and quizzes. additionary, users should be able to track their 
+progress and access additional language resources.
 
 ## Question 2
 
@@ -11,3 +14,11 @@ Implement a parking-lot management for large, multi-level parking facilities tha
 ## Question 3
 
 Create an election system that ensures security and prevents fraud.
+
+## Group 21 Members
+
+| Names              |
+|--------------------|
+| Mercylin muthoni   |
+| Berissa Muyizere   |
+| Tihtina Abraham    |
