@@ -8,14 +8,22 @@ efficient space utilisation, and improve the overall user experience.
 Inputs: A hashmap tcontaining parking lot details, a hashmap containing vehicle details, parking lot fee amount.
 
 Process
-1. Define parking lot structure like Number of spaces per lot
-2. Categorize spaces by vehicle type (e.g., car, motorcycle, truck)
+1. Define parking lot structure like Number of spaces per lot.
+
+2. Categorize spaces by vehicle type (e.g., car, motorcycle, truck).
+
 3. For every vehicle that comes in, assign the nearest available space that matches the vehicle type.
-4. Mark assigned space as occupied
+
+4. Mark assigned space as occupied.
+
 5. Update available spaces.
+
 6. Calculate parking fee based on duration and space type.
+
 7. If amount paid equals the parking fee, update ticket status to “paid”.
+
 8. Mark the parking space as available.
+
 9. Repeat step 5.
 
 Outputs: strings of success or error messages.
