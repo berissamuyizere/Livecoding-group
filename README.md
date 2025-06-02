@@ -19,6 +19,6 @@ Create an election system that ensures security and prevents fraud.
 
 | Names              |
 |--------------------|
-| Mercylin muthoni   |
+| Mercylin Muthoni   |
 | Berissa Muyizere   |
 | Tihtina Abraham    |
